@@ -4,9 +4,10 @@ from PIL import Image
 import numpy as np
 
 st.title("rembg Demo")
-col1, col2 = st.columns(2)
 images = st.file_uploader("Load Image", accept_multiple_files =True)
+
 if images:
+    col1, col2 = st.columns(2)
     for image in images:
         with Image.open(image) as img:
             col1.header("Original")
