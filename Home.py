@@ -11,13 +11,41 @@ style = """
     -webkit-box-align: center;
     align-items: center;
     padding: 1rem;
-    background-color: #f5f5f5;
+    background-color: #f8f9fc;
     border-radius: 0.5rem;
     color: rgb(49, 51, 63);
     height: 300px;
     width: 90%;
     box-shadow: 10px 10px 5px #dedede;
+    text-align: center;
 }
+.css-6kekos {
+    /* display: inline-flex; */
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    margin: 0px;
+    line-height: 1.6;
+    color: inherit;
+    width: auto;
+    user-select: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    display: none;
+}
+
+.css-u8hs99 {
+    margin-right: auto;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 10%;
+}
+
 </style>
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
