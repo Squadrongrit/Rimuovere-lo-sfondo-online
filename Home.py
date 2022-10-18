@@ -149,6 +149,11 @@ if images:
                     col2.header("Senza Sfondo")
                     with Image.open(image) as img:
                         #salvo il gif originale
+
+                        #if image dimension is too large, resize it of 50%
+                        if img.size[0] > 500 or img.size[1] > 500:
+                            img = img.resize((int(img.size[0]/2), int(img.size[1]/2)))
+                        
                         img.save("gif{}.gif".format(images.index(image)+1))
                         file = open("gif{}.gif".format(images.index(image)+1), 'rb')
                         contents = file.read()
