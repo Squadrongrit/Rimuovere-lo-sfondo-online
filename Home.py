@@ -162,7 +162,7 @@ if images:
                             img = frames[0]
                             img.save("original{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:])
                             img_nobg = frame_nobg[0]
-                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:], loop = 2)
+                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:], loop = 20)
 
                             file = open("original{}.gif".format(images.index(image)+1), "rb")
                             contents = file.read()
