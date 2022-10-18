@@ -11,7 +11,7 @@ style = """
     -webkit-box-align: center;
     align-items: center;
     padding: 1rem;
-    background-color: #f8f9fc;
+    background-color: #076ad9;
     border-radius: 0.5rem;
     color: rgb(49, 51, 63);
     height: 300px;
@@ -20,7 +20,6 @@ style = """
     text-align: center;
 }
 .css-6kekos {
-    /* display: inline-flex; */
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
@@ -44,6 +43,32 @@ style = """
     align-items: center;
     text-align: center;
     padding-left: 10%;
+    display: block;
+}
+
+.css-noeb3a {
+    vertical-align: middle;
+    overflow: hidden;
+    color: white;
+    fill: currentcolor;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 2.3rem;
+    width: 4.3rem;
+    height: 4.3rem;
+}
+
+.css-1fttcpj {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.css-1aehpvj {
+    color: white;
+    font-size: 14px;
+    line-height: 1.25;
 }
 
 </style>
