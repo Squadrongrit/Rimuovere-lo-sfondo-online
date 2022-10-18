@@ -24,7 +24,7 @@ st.markdown(style, unsafe_allow_html=True) #Title rendering
 st.title("Rimuovi gli sfondi automaticamente al 100% in 5 secondi con un clic")
 colb1, colb2 = st.columns(2)
 images = colb2.file_uploader("Trascina una o più immagini", accept_multiple_files =True, type=['png', 'jpg','Jpeg'])
-colb1 = st.image("remove-gif.242b60d.gif")
+colb1 = st.markdown("![Alt Text](remove-gif.242b60d.gif)")
 
 if images:
     col1, col2 = st.columns(2)
