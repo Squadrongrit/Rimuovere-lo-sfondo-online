@@ -132,7 +132,7 @@ if images:
         #ottengo estensione del file
         ext = image.name.split(".")[-1]
         # se ext è 'png', 'jpg','Jpeg'
-        if ext in ['png', 'jpg','Jpeg']:
+        if ext in ['png', 'jpg','Jpeg', 'jpeg', 'JPG']:
             with st.spinner("Rimozione del background in corso..."):
                 with st.expander("Immagine numero {}".format(images.index(image)+1)):
                     col1, col2 = st.columns(2)
@@ -173,7 +173,7 @@ if images:
 
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
         #se è gif
-        elif file_details == 'image/gif':
+        elif ext == 'gif':
             st.info("Stiamo lavorando per migliorare la rimozione del background per i file gif")
             # rimuovi gif da images
             images.remove(image)
