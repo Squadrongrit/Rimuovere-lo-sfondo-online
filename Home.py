@@ -80,7 +80,7 @@ colb1, colb2 = st.columns(2)
 images = colb2.file_uploader("Trascina una o più immagini", accept_multiple_files =True, type=['png', 'jpg','Jpeg'])
 
 colb1.image("background-removal-banner-1.jpg")
-st.write("![Your Awsome GIF](1.gif)")
+st.write("![Your Awsome GIF](https://www.canva.com/design/DAFPYAQyKGs/watch)")
 
 if images:
     col1, col2 = st.columns(2)
