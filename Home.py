@@ -105,6 +105,7 @@ if images:
                     output = remove(img)
                     col2.image(output, caption="Dimensioni senza sfondo: {}x{}".format(img.size[0], img.size[1]))
 
+                    st.header("Migliorate dalla nostra IA")
                     curr_bri = ImageEnhance.Brightness(output)
                     new_bri = 1.1
                     img_brightened = curr_bri.enhance(new_bri)
@@ -112,7 +113,7 @@ if images:
                     new_col = 1.1
                     img_colored = curr_col.enhance(new_col)
                     curr_con = ImageEnhance.Contrast(img_colored)
-                    new_con = 1.2
+                    new_con = 1.05
                     img_contrasted = curr_con.enhance(new_con)
 
                     curr_bri2 = ImageEnhance.Brightness(output)
@@ -122,7 +123,7 @@ if images:
                     new_col2 = 1.2
                     img_colored2 = curr_col2.enhance(new_col2)
                     curr_con2 = ImageEnhance.Contrast(img_colored2)
-                    new_con2 = 1.3
+                    new_con2 = 1.2
                     img_contrasted2 = curr_con2.enhance(new_con2)
 
                     col3, col4 = st.columns(2)
@@ -130,3 +131,5 @@ if images:
                     output3 = remove(img_contrasted)
                     col3.image(output3, caption="Immagine Migliorata poco dalla nostra IA")
                     col4.image(output2, caption="Immagine Migliorata molto dalla nostra IA")
+
+                    st.info("Per scaricare l'immagine miglioreata, clicca con il tasto destro del mouse e seleziona 'Salva immagine con nome'")
