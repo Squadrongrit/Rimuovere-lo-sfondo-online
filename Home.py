@@ -150,9 +150,11 @@ if images:
                     with Image.open(image) as img:
                         #salvo il gif originale
 
-                        #if image dimension is too large, resize it of 50%
+                        #if gif dimension is too big, resize it to 50%
                         if img.size[0] > 500 or img.size[1] > 500:
-                            img = img.resize((int(img.size[0]/2), int(img.size[1]/2)))
+                            #resize gif ( evry frame )
+                            img = img.resize((int(img.size[0]/2), int(img.size[1]/2)), Image.ANTIALIAS)
+
                         
                         img.save("gif{}.gif".format(images.index(image)+1))
                         file = open("gif{}.gif".format(images.index(image)+1), 'rb')
