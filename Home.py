@@ -94,6 +94,7 @@ images = colb2.file_uploader("", accept_multiple_files =True, type=['png', 'jpg'
 
 colb1.image("background-removal-banner-1.jpg")
 
+
 if images:
     for image in images:
         #ottengo il tipo del file
@@ -141,7 +142,7 @@ if images:
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
         #se è gif
         elif file_details == 'image/gif':
-            with st.spinner("Rimozione del background dalla GIF in corso..."):
+            with st.spinner("Rimozione del background dalla GIF in corso... Può richiedere più tempo rispetto ad una semplice immagine"):
                 with st.expander("GIF numero numero {}".format(images.index(image)+1)):
                     col1, col2 = st.columns(2)
                     col1.header("Originali")
@@ -159,7 +160,7 @@ if images:
                             output = remove(frame)
                             frames.append(output)
                         #save the new gif
-                        frames[0].save("gif_no_bg{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:], optimize=False, loop=2)
+                        frames[0].save("gif_no_bg{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:], optimize=False, loop=0)
                         file2 = open("gif_no_bg{}.gif".format(images.index(image)+1), 'rb')
                         contents2 = file2.read()
                         data_url2 = base64.b64encode(contents2).decode('utf-8-sig')
