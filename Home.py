@@ -26,15 +26,7 @@ st.title("Rimuovi gli sfondi automaticamente al 100% in 5 secondi con un clic")
 colb1, colb2 = st.columns(2)
 images = colb2.file_uploader("Trascina una o più immagini", accept_multiple_files =True, type=['png', 'jpg','Jpeg'])
 
-file_ = open("remove-gif.242b60d.gif", "rb")
-contents = file_.read()
-data_url = base64.b64encode(contents).decode("utf-8")
-file_.close()
-
-colb1.markdown(
-    f'<img src="data:image/gif;base64,{data_url}" alt="cat gif" width="300" height="300" >',
-    unsafe_allow_html=True,
-)
+colb1.image("background-removal-banner-1.jpg")
 
 if images:
     col1, col2 = st.columns(2)
