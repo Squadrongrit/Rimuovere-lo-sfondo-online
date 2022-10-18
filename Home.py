@@ -2,6 +2,8 @@ import base64
 import streamlit as st
 from rembg import remove
 from PIL import Image
+from PIL import ImageEnhance
+import imquality.brisque as brisque
 import numpy as np
 
 style = """
@@ -71,6 +73,16 @@ style = """
     line-height: 1.25;
 }
 
+.css-fis6aj {
+    left: 0px;
+    right: 0px;
+    line-height: 1.25;
+    padding-top: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: none;
+}
+
 </style>
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
@@ -89,7 +101,33 @@ if images:
                 col1.header("Originali")
                 col2.header("Senza Sfondo")
                 with Image.open(image) as img:
-                    col1.image(img, caption="Dimensioni originali: {}x{}".format(img.size[0], img.size[1]))
+                    col1.image(img, caption="Dimensioni originali: {}x{}, qualità immagine {}".format(img.size[0], img.size[1], round(brisque.score(img))))
 
                     output = remove(img)
-                    col2.image(output, caption="Dimensioni senza sfondo: {}x{}".format(output.size[0], output.size[1]))
+                    col2.image(output, caption="Dimensioni senza sfondo: {}x{}, qualità immagine {}".format(img.size[0], img.size[1], round(brisque.score(output))))
+
+                    curr_bri = ImageEnhance.Brightness(output)
+                    new_bri = 1.1
+                    img_brightened = curr_bri.enhance(new_bri)
+                    curr_col = ImageEnhance.Color(img_brightened)
+                    new_col = 1.1
+                    img_colored = curr_col.enhance(new_col)
+                    curr_con = ImageEnhance.Contrast(img_colored)
+                    new_con = 1.2
+                    img_contrasted = curr_con.enhance(new_con)
+
+                    curr_bri2 = ImageEnhance.Brightness(output)
+                    new_bri2 = 1.2
+                    img_brightened2 = curr_bri2.enhance(new_bri2)
+                    curr_col2 = ImageEnhance.Color(img_brightened2)
+                    new_col2 = 1.2
+                    img_colored2 = curr_col2.enhance(new_col2)
+                    curr_con2 = ImageEnhance.Contrast(img_colored2)
+                    new_con2 = 1.4
+                    img_contrasted2 = curr_con2.enhance(new_con2)
+
+                    col3, col4 = st.columns(2)
+                    output2 = remove(img_contrasted2)
+                    output3 = remove(img_contrasted)
+                    col3.image(output2, caption="Immagine Migliorata poco dalla nostra IA, qualità immagine {}".format(round(brisque.score(output3))))
+                    col4.image(output3, caption="Immagine Migliorata molto dalla nostra IA, qualità immagine {}".format(round(brisque.score(output2))))
