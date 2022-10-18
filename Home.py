@@ -79,25 +79,17 @@ st.title("Rimuovi gli sfondi automaticamente al 100% in 5 secondi con un clic")
 colb1, colb2 = st.columns(2)
 images = colb2.file_uploader("Trascina una o più immagini", accept_multiple_files =True, type=['png', 'jpg','Jpeg'])
 
-file_ = open("background-removal-banner-1.jpg", "rb")
-contents = file_.read()
-data_url = base64.b64encode(contents).decode("utf-8")
-file_.close()
-
-colb1.markdown(
-    f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-    unsafe_allow_html=True,
-)
-
+colb1.image("background-removal-banner-1.jpg")
 
 if images:
     col1, col2 = st.columns(2)
     for image in images:
-        with st.expander("Immagine numero {}".format(images.index(image)+1)):
-            col1.header("Originali")
-            col2.header("Senza Sfondo")
-            with Image.open(image) as img:
-                col1.image(img, caption="Dimensioni originali: {}x{}".format(img.size[0], img.size[1]))
+        with st.spinner("Rimozione del background in corso..."):
+            with st.expander("Immagine numero {}".format(images.index(image)+1)):
+                col1.header("Originali")
+                col2.header("Senza Sfondo")
+                with Image.open(image) as img:
+                    col1.image(img, caption="Dimensioni originali: {}x{}".format(img.size[0], img.size[1]))
 
-                output = remove(img)
-                col2.image(output, caption="Dimensioni senza sfondo: {}x{}".format(output.size[0], output.size[1]))
+                    output = remove(img)
+                    col2.image(output, caption="Dimensioni senza sfondo: {}x{}".format(output.size[0], output.size[1]))
