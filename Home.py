@@ -81,7 +81,7 @@ style = """
     padding-top: 0.75rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    display: none;
+    display: block;
 }
 
 </style>
@@ -143,76 +143,5 @@ if images:
         #se è gif
         elif file_details == 'image/gif':
             st.info("Stiamo lavorando per migliorare la rimozione del background per i file gif")
-            """
-            with st.spinner("Rimozione del background dalla GIF in corso... Può richiedere più tempo rispetto ad una semplice immagine"):
-                with st.expander("GIF numero numero {}".format(images.index(image)+1)):
-                    col1, col2 = st.columns(2)
-                    col1.header("Originali")
-                    col2.header("Senza Sfondo")
-                    with Image.open(image) as img:
-                        #salvo il gif originale
-
-                        #if gif dimension is too big, resize it to 50%
-                        if img.size[0] > 500 or img.size[1] > 500:
-                            #resize evry frame
-                            frames = []
-                            frame_nobg = []
-                            for frame in ImageSequence.Iterator(img):
-                                frame = frame.resize((int(frame.size[0]/2), int(frame.size[1]/2)))
-                                frame_nobg.append(remove(frame))
-                                frames.append(frame)
-                            img = frames[0]
-                            img.save("original{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:])
-                            img_nobg = frame_nobg[0]
-                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:])
-
-                            file = open("original{}.gif".format(images.index(image)+1), "rb")
-                            contents = file.read()
-                            data_url = base64.b64encode(contents).decode("utf-8")
-                            file.close()
-                            col1.markdown(
-                                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                                unsafe_allow_html=True,
-                            )
-
-                            file = open("nobg{}.gif".format(images.index(image)+1), "rb")
-                            contents = file.read()
-                            data_url = base64.b64encode(contents).decode("utf-8")
-                            file.close()
-                            col2.markdown(
-                                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                                unsafe_allow_html=True,
-                            )
-                        else:
-                            #resize evry frame
-                            frames = []
-                            frame_nobg = []
-                            for frame in ImageSequence.Iterator(img):
-                                frame_nobg.append(remove(frame))
-                                frames.append(frame)
-                            img = frames[0]
-                            img.save("original{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:])
-                            img_nobg = frame_nobg[0]
-                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:])
-
-                            file = open("original{}.gif".format(images.index(image)+1), "rb")
-                            contents = file.read()
-                            data_url = base64.b64encode(contents).decode("utf-8")
-                            file.close()
-                            col1.markdown(
-                                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                                unsafe_allow_html=True,
-                            )
-
-                            file = open("nobg{}.gif".format(images.index(image)+1), "rb")
-                            contents = file.read()
-                            data_url = base64.b64encode(contents).decode("utf-8")
-                            file.close()
-                            col2.markdown(
-                                f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                                unsafe_allow_html=True,
-                            )
-                        
-                        st.info("Per scaricare le immagini usa il tasto destro del mouse")
-            """
+            
             
