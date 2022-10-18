@@ -1,3 +1,4 @@
+import cv2
 import base64
 import streamlit as st
 from rembg import remove
@@ -174,7 +175,7 @@ if images:
                         #output2.save("output2{}.png".format(images.index(image)+1))
                         #output3.save("output3{}.png".format(images.index(image)+1))
 
-                        import cv2
+                        
  
                         sr = cv2.dnn_superres.DnnSuperResImpl_create()
                         path = "ESPCN_x4.pb"
