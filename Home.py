@@ -87,7 +87,6 @@ style = """
     margin-bottom: 0.05rem;
     font-size: small;
 }
-</style>
 
 .css-vskyf7 {
     vertical-align: middle;
@@ -101,6 +100,9 @@ style = """
     width: 0.8rem;
     height: 0.8rem;
 }
+</style>
+
+
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
 
@@ -113,10 +115,10 @@ colb1.image("background-removal-banner-1.jpg")
 
 if images:
     for image in images:
-        #ottengo il tipo del file
-        file_details = image.type
-        #se il file è 'png', 'jpg','Jpeg'
-        if file_details == 'image/png' or file_details == 'image/jpg' or file_details == 'image/Jpeg':
+        #ottengo estensione del file
+        ext = image.name.split(".")[-1]
+        # se ext è 'png', 'jpg','Jpeg'
+        if ext in ['png', 'jpg','Jpeg']:
             with st.spinner("Rimozione del background in corso..."):
                 with st.expander("Immagine numero {}".format(images.index(image)+1)):
                     col1, col2 = st.columns(2)
