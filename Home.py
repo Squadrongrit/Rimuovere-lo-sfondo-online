@@ -116,17 +116,17 @@ if images:
                     img_contrasted = curr_con.enhance(new_con)
 
                     curr_bri2 = ImageEnhance.Brightness(output)
-                    new_bri2 = 1.2
+                    new_bri2 = 1.1
                     img_brightened2 = curr_bri2.enhance(new_bri2)
                     curr_col2 = ImageEnhance.Color(img_brightened2)
                     new_col2 = 1.2
                     img_colored2 = curr_col2.enhance(new_col2)
                     curr_con2 = ImageEnhance.Contrast(img_colored2)
-                    new_con2 = 1.4
+                    new_con2 = 1.3
                     img_contrasted2 = curr_con2.enhance(new_con2)
 
                     col3, col4 = st.columns(2)
                     output2 = remove(img_contrasted2)
                     output3 = remove(img_contrasted)
-                    col3.image(output2, caption="Immagine Migliorata poco dalla nostra IA")
-                    col4.image(output3, caption="Immagine Migliorata molto dalla nostra IA")
+                    col3.image(output3, caption="Immagine Migliorata poco dalla nostra IA")
+                    col4.image(output2, caption="Immagine Migliorata molto dalla nostra IA")
