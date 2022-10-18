@@ -152,11 +152,15 @@ if images:
 
                         #if gif dimension is too big, resize it to 50%
                         if img.size[0] > 500 or img.size[1] > 500:
-                            #resize gif ( evry frame )
-                            img = img.resize((int(img.size[0]/2), int(img.size[1]/2)), Image.ANTIALIAS)
+                            #resize evry frame
+                            frames = []
+                            for frame in ImageSequence.Iterator(img):
+                                frame = frame.resize((int(frame.size[0]/2), int(frame.size[1]/2)))
+                                frames.append(frame)
+                            img = frames[0]
 
-                        
-                        img.save("gif{}.gif".format(images.index(image)+1))
+                        #salvo il gif originale
+                        img.save("gif{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:], loop=0)
                         file = open("gif{}.gif".format(images.index(image)+1), 'rb')
                         contents = file.read()
                         data_url = base64.b64encode(contents).decode('utf-8-sig')
