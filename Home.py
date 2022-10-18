@@ -100,6 +100,20 @@ style = """
     width: 0.8rem;
     height: 0.8rem;
 }
+
+.css-fblp2m {
+    vertical-align: middle;
+    overflow: hidden;
+    color: inherit;
+    fill: currentcolor;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding-left: 5px;
+}
 </style>
 
 
