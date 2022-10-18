@@ -165,7 +165,7 @@ if images:
                             output = remove(frame)
                             frames.append(output)
                         #save the new gif
-                        frames[0].save("gif_no_bg{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:], optimize=False, loop=0)
+                        frames[0].save("gif_no_bg{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:], loop=0)
                         file2 = open("gif_no_bg{}.gif".format(images.index(image)+1), 'rb')
                         contents2 = file2.read()
                         data_url2 = base64.b64encode(contents2).decode('utf-8-sig')
