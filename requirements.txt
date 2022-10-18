@@ -1,3 +1,4 @@
+opencv-contrib-python
 rembg
 streamlit
-opencv-contrib-python
+
