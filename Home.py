@@ -17,7 +17,7 @@ style = """
     background-color: #076ad9;
     border-radius: 0.5rem;
     color: rgb(49, 51, 63);
-    height: 400px;
+    height: 350px;
     width: 90%;
     box-shadow: 10px 10px 5px #dedede;
     text-align: center;
@@ -69,22 +69,38 @@ style = """
 }
 
 .css-1aehpvj {
-    color: white;
-    font-size: 14px;
+    color: darkblue;
+    font-size: smaller;
     line-height: 1.25;
 }
 
 .css-fis6aj {
-    left: 0px;
-    right: 0px;
-    line-height: 1.25;
     padding-top: 0.75rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
     display: block;
+    width: 80%;
 }
 
+.css-12xsiil {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 0.05rem;
+    font-size: small;
+}
 </style>
+
+.css-vskyf7 {
+    vertical-align: middle;
+    overflow: hidden;
+    color: blue;
+    fill: currentcolor;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 0.8rem;
+    width: 0.8rem;
+    height: 0.8rem;
+}
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
 
@@ -143,5 +159,7 @@ if images:
         #se è gif
         elif file_details == 'image/gif':
             st.info("Stiamo lavorando per migliorare la rimozione del background per i file gif")
-            
+            # rimuovi gif da images
+            images.remove(image)
+
             
