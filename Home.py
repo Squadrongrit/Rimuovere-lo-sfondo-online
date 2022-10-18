@@ -1,4 +1,4 @@
-import cv2
+#import cv2
 import base64
 import streamlit as st
 from rembg import remove
@@ -177,15 +177,15 @@ if images:
 
                         
  
-                        sr = cv2.dnn_superres.DnnSuperResImpl_create()
-                        path = "ESPCN_x4.pb"
-                        sr.readModel(path) 
-                        sr.setModel("espcn", 4) # set the model by passing the value and the upsampling ratio
-                        result = sr.upsample(output2)
-                        result2 = sr.upsample(output3)
-                        col5, col6 = st.columns(2)
-                        col5.image(result, caption="Immagine Migliorata molto dalla nostra IA + Super Resolution")
-                        col6.image(result2, caption="Immagine Migliorata poco dalla nostra IA + Super Resolution")
+                        #sr = cv2.dnn_superres.DnnSuperResImpl_create()
+                        #path = "ESPCN_x4.pb"
+                        #sr.readModel(path) 
+                        #sr.setModel("espcn", 4) # set the model by passing the value and the upsampling ratio
+                        #result = sr.upsample(output2)
+                        #result2 = sr.upsample(output3)
+                        #col5, col6 = st.columns(2)
+                        #col5.image(result, caption="Immagine Migliorata molto dalla nostra IA + Super Resolution")
+                        #col6.image(result2, caption="Immagine Migliorata poco dalla nostra IA + Super Resolution")
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
         #se è gif
         elif ext == 'gif':
