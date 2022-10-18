@@ -3,7 +3,6 @@ import streamlit as st
 from rembg import remove
 from PIL import Image
 from PIL import ImageEnhance
-import imquality.brisque as brisque
 import numpy as np
 
 style = """
@@ -101,10 +100,10 @@ if images:
                 col1.header("Originali")
                 col2.header("Senza Sfondo")
                 with Image.open(image) as img:
-                    col1.image(img, caption="Dimensioni originali: {}x{}, qualità immagine {}".format(img.size[0], img.size[1], round(brisque.score(img))))
+                    col1.image(img, caption="Dimensioni originali: {}x{}".format(img.size[0], img.size[1]))
 
                     output = remove(img)
-                    col2.image(output, caption="Dimensioni senza sfondo: {}x{}, qualità immagine {}".format(img.size[0], img.size[1], round(brisque.score(output))))
+                    col2.image(output, caption="Dimensioni senza sfondo: {}x{}".format(img.size[0], img.size[1]))
 
                     curr_bri = ImageEnhance.Brightness(output)
                     new_bri = 1.1
@@ -129,5 +128,5 @@ if images:
                     col3, col4 = st.columns(2)
                     output2 = remove(img_contrasted2)
                     output3 = remove(img_contrasted)
-                    col3.image(output2, caption="Immagine Migliorata poco dalla nostra IA, qualità immagine {}".format(round(brisque.score(output3))))
-                    col4.image(output3, caption="Immagine Migliorata molto dalla nostra IA, qualità immagine {}".format(round(brisque.score(output2))))
+                    col3.image(output2, caption="Immagine Migliorata poco dalla nostra IA")
+                    col4.image(output3, caption="Immagine Migliorata molto dalla nostra IA")
