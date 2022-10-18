@@ -142,6 +142,8 @@ if images:
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
         #se è gif
         elif file_details == 'image/gif':
+            st.info("Stiamo lavorando per migliorare la rimozione del background per i file gif")
+            """
             with st.spinner("Rimozione del background dalla GIF in corso... Può richiedere più tempo rispetto ad una semplice immagine"):
                 with st.expander("GIF numero numero {}".format(images.index(image)+1)):
                     col1, col2 = st.columns(2)
@@ -162,7 +164,7 @@ if images:
                             img = frames[0]
                             img.save("original{}.gif".format(images.index(image)+1), save_all=True, append_images=frames[1:])
                             img_nobg = frame_nobg[0]
-                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:], loop = 20)
+                            img_nobg.save("nobg{}.gif".format(images.index(image)+1), save_all=True, append_images=frame_nobg[1:])
 
                             file = open("original{}.gif".format(images.index(image)+1), "rb")
                             contents = file.read()
@@ -212,3 +214,5 @@ if images:
                             )
                         
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
+            """
+            
