@@ -170,7 +170,21 @@ if images:
                         output3 = remove(img_contrasted)
                         col3.image(output3, caption="Immagine Migliorata poco dalla nostra IA")
                         col4.image(output2, caption="Immagine Migliorata molto dalla nostra IA")
+                        #save image
+                        #output2.save("output2{}.png".format(images.index(image)+1))
+                        #output3.save("output3{}.png".format(images.index(image)+1))
 
+                        import cv2
+ 
+                        sr = cv2.dnn_superres.DnnSuperResImpl_create()
+                        path = "ESPCN_x4.pb"
+                        sr.readModel(path) 
+                        sr.setModel("espcn", 4) # set the model by passing the value and the upsampling ratio
+                        result = sr.upsample(output2)
+                        result2 = sr.upsample(output3)
+                        col5, col6 = st.columns(2)
+                        col5.image(result, caption="Immagine Migliorata molto dalla nostra IA + Super Resolution")
+                        col6.image(result2, caption="Immagine Migliorata poco dalla nostra IA + Super Resolution")
                         st.info("Per scaricare le immagini usa il tasto destro del mouse")
         #se è gif
         elif ext == 'gif':
