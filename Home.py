@@ -10,7 +10,7 @@ import numpy as np
 
 style = """
 <style>
-#root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0.2rem;}
+#root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0.5rem;}
 .css-po3vlj {
     display: flex;
     -webkit-box-align: center;
