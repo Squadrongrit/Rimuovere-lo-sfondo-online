@@ -116,6 +116,17 @@ style = """
     height: 1.25rem;
     padding-left: 5px;
 }
+.css-18ni7ap {
+    /* position: fixed; */
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 2.875rem;
+    background: rgb(255, 255, 255);
+    outline: none;
+    z-index: 999990;
+    display: none;
+}
 </style>
 
 
