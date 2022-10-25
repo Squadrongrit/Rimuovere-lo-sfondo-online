@@ -120,8 +120,6 @@ style = """
 
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
-
-st.title("Rimuovi gli sfondi automaticamente al 100% in 5 secondi con un clic")
 colb1, colb2 = st.columns(2)
 images = colb2.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
 
