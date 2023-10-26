@@ -1,4 +1,3 @@
-#import cv2
 import base64
 import streamlit as st
 from rembg import remove
@@ -7,7 +6,7 @@ from PIL import ImageEnhance
 from PIL import GifImagePlugin
 from PIL import ImageSequence
 import numpy as np
-
+st.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
 style = """
 <style>
 #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0.5rem;}
@@ -138,6 +137,8 @@ images = colb2.file_uploader("", accept_multiple_files =True, type=['png', 'jpg'
 colb1.image("background-removal-banner-1.jpg")
 
 
+
+
 if images:
     for image in images:
         #ottengo estensione del file
@@ -202,5 +203,3 @@ if images:
             st.info("Stiamo lavorando per migliorare la rimozione del background per i file gif")
             # rimuovi gif da images
             images.remove(image)
-
-            
