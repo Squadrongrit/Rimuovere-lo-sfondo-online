@@ -6,6 +6,7 @@ from PIL import ImageEnhance
 from PIL import GifImagePlugin
 from PIL import ImageSequence
 import numpy as np
+images=st.image("background-removal-banner-1.jpg")
 st.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
 style = """
 <style>
@@ -131,11 +132,6 @@ style = """
 
 """
 st.markdown(style, unsafe_allow_html=True) #Title rendering
-colb1, colb2 = st.columns(2)
-images = colb2.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
-
-colb1.image("background-removal-banner-1.jpg")
-
 
 
 
