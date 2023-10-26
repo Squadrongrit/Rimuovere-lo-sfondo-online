@@ -24,6 +24,9 @@ style = """
     box-shadow: 10px 10px 5px #dedede;
     text-align: center;
 }
+.css-1avcm0n{
+    visibility: collapse;
+}
 .css-6kekos {
     -webkit-box-align: center;
     align-items: center;
