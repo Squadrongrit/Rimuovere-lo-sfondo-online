@@ -6,8 +6,8 @@ from PIL import ImageEnhance
 from PIL import GifImagePlugin
 from PIL import ImageSequence
 import numpy as np
-images=st.image("background-removal-banner-1.jpg")
-st.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
+st.image("background-removal-banner-1.jpg", use_column_width=True)
+images=st.file_uploader("", accept_multiple_files =True, type=['png', 'jpg','Jpeg', 'gif'])
 style = """
 <style>
 #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0.5rem;}
